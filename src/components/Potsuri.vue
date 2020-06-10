@@ -1,48 +1,50 @@
 <template>
-  <v-container>
-    <v-col>
-      <v-card>
-        <v-card-text>
-          <v-textarea
-            v-model="newPostStr"
-            v-on:keydown.enter.ctrl.exact="makeNewPost"
-            :rules="postRules"
-            counter="140"
-            label="New post"
-          ></v-textarea>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn v-on:click="makeNewPost" icon>
-            <v-icon>mdi-send</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-col v-for="post in posts" :key="post.id">
-        <v-card outlined>
-          <v-card-text
-            style="white-space:pre-wrap; word-wrap:break-word;"
-            v-text="post.text"
-            class="headline font-weight-regular"
-          ></v-card-text>
+  <v-content>
+    <v-container>
+      <v-col>
+        <v-card>
+          <v-card-text>
+            <v-textarea
+              v-model="newPostStr"
+              v-on:keydown.enter.ctrl.exact="makeNewPost"
+              :rules="postRules"
+              counter="140"
+              label="New post"
+            ></v-textarea>
+          </v-card-text>
           <v-card-actions>
-            <p>{{ post.formattedDate }}</p>
             <v-spacer></v-spacer>
-
-            <v-btn icon>
-              <v-icon v-on:click="tweet(post.text)" color="#1DA1F2">fab fa-twitter</v-icon>
-            </v-btn>
-            <v-btn v-on:click="deletePost(post)" icon>
-              <v-icon>mdi-trash-can</v-icon>
-            </v-btn>
-            <v-btn icon>
-              <v-icon>mdi-star</v-icon>
+            <v-btn v-on:click="makeNewPost" icon>
+              <v-icon>mdi-send</v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
+        <v-col v-for="post in posts" :key="post.id">
+          <v-card outlined>
+            <v-card-text
+              style="white-space:pre-wrap; word-wrap:break-word;"
+              v-text="post.text"
+              class="headline font-weight-regular"
+            ></v-card-text>
+            <v-card-actions>
+              <p>{{ post.formattedDate }}</p>
+              <v-spacer></v-spacer>
+
+              <v-btn icon>
+                <v-icon v-on:click="tweet(post.text)" color="#1DA1F2">fab fa-twitter</v-icon>
+              </v-btn>
+              <v-btn v-on:click="deletePost(post)" icon>
+                <v-icon>mdi-trash-can</v-icon>
+              </v-btn>
+              <v-btn icon>
+                <v-icon>mdi-star</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
       </v-col>
-    </v-col>
-  </v-container>
+    </v-container>
+  </v-content>
 </template>
 
 <script>
