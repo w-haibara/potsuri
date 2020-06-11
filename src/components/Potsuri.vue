@@ -58,7 +58,7 @@ export default {
       {
         id: "00000000",
         date: "Thu Jun 11 2020 01:49:22 GMT+0900 (日本標準時)",
-        formattedDate: "2020/5/4 2:2:42",
+        formattedDate: "2020/05/04 02:02:42",
         text: "Potsuriでつぶやこう。"
       }
     ]
@@ -80,15 +80,15 @@ export default {
       return (
         date.getFullYear() +
         "/" +
-        date.getMonth() +
+        date.getMonth().padStart(2, '0') +
         "/" +
-        date.getDay() +
+        date.getDay().padStart(2, '0') +
         " " +
-        date.getHours() +
+        date.getHours().padStart(2, '0') +
         ":" +
-        date.getMinutes() +
+        date.getMinutes().padStart(2, '0') +
         ":" +
-        date.getSeconds()
+        date.getSeconds().padStart(2, '0')
       );
     },
     savePost(data) {
