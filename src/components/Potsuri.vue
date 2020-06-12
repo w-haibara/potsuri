@@ -80,15 +80,15 @@ export default {
       return (
         date.getFullYear() +
         "/" +
-        date.getMonth().padStart(2, '0') +
+        date.getMonth().toString().padStart(2, '0') +
         "/" +
-        date.getDay().padStart(2, '0') +
+        date.getDay().toString().padStart(2, '0') +
         " " +
-        date.getHours().padStart(2, '0') +
+        date.getHours().toString().padStart(2, '0') +
         ":" +
-        date.getMinutes().padStart(2, '0') +
+        date.getMinutes().toString().padStart(2, '0') +
         ":" +
-        date.getSeconds().padStart(2, '0')
+        date.getSeconds().toString().padStart(2, '0')
       );
     },
     savePost(data) {
